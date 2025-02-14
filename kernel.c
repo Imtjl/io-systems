@@ -58,6 +58,9 @@ void kernel_main(void) {
         int input;
         while ((input = getchar()) == -1)
             ;
+        puts("Chosen option: ");
+        putchar(input);
+        puts("\n");
 
         switch (input) {
         case '1': {
@@ -78,16 +81,18 @@ void kernel_main(void) {
 
             struct sbiret res = sbi_call(hart_id, 0, 0, 0, 0, 0, 2, 0x48534D);
 
-            puts("Hart status:");
+            puts("Hart status: ");
             putchar(res.value + '0');
             puts("");
             break;
         }
         case '3': {
+            puts("Stopping hart...");
             sbi_call(0, 0, 0, 0, 0, 0, 1, 0x48534D);
             break;
         }
         case '4': {
+            puts("Shutting the system down...");
             sbi_call(0, 0, 0, 0, 0, 0, 0, 0x08);
             break;
         }
