@@ -1,6 +1,22 @@
-*.map
+# Bare-metal RISC-V build artifacts
 *.elf
-*.pdf
-*.bin
+*.map
+opensbi-*.bin
 
-!reports/*
+# Linux kernel module build artifacts
+*.ko
+*.o
+*.mod
+*.mod.c
+*.symvers
+*.order
+.tmp_versions/
+.*.cmd
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor / OS
+.DS_Store
+*.swp
